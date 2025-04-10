@@ -1,0 +1,26 @@
+@use "../../sass/components/auth" as *;
+@use "../../sass/components/buttons" as *;
+
+.container {
+  @extend .authContainer;
+}
+
+.contentContainer {
+  @extend .authContent;
+}
+
+.inputFieldLabel {
+  @extend .authInputLabel;
+}
+
+.inputLabelName {
+  @extend .authInputLabelName;
+}
+
+.inputField {
+  @extend .authInputField;
+}
+
+.signUpBtn {
+  @extend .defaultButton;
+}

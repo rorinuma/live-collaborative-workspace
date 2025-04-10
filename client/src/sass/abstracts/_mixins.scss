@@ -1,0 +1,61 @@
+@use "../abstracts/variables" as v;
+
+@mixin center-flex($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin items-center($justify-content: flex-start) {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: $justify-content;
+}
+
+@mixin flex($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+}
+
+@mixin button-hover {
+  opacity: v.$btn-hover-opacity;
+  transition: v.$btn-hover-transition;
+}
+
+@mixin content-container-base($spacing) {
+  background-color: v.$secondary-accent;
+  padding: $spacing;
+  border-radius: v.$border-lg;
+  box-shadow: v.$shadow-dark;
+}
+
+@mixin button-base {
+  all: unset;
+  color: v.$secondary-accent;
+  background-color: v.$primary-accent;
+  text-align: center;
+  cursor: pointer;
+  padding: 0.75rem v.$space-md;
+  margin-top: v.$space-md;
+  border-radius: v.$border-xxl;
+}
+
+@mixin button-base-disabled {
+  background-color: v.$disabled-color;
+  color: v.$disabled-text-color;
+  cursor: default;
+}
+
+@mixin workspace-avatar-base($text-color: none,
+  $background-color: none,
+  $size: 6rem) {
+  color: $text-color;
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  background-color: $background-color;
+  cursor: pointer;
+  object-fit: cover;
+}

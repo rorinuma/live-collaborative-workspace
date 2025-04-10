@@ -1,0 +1,47 @@
+@use "../abstracts/mixins" as m;
+@use "../abstracts/variables" as v;
+
+.inputFieldLabel {
+  @include m.flex(column);
+  position: relative;
+  margin-top: v.$space-xs;
+
+  .inputLabelName {
+    font-size: v.$font-size-sm;
+  }
+
+  .inputField {
+    all: unset;
+    outline: 1px solid v.$primary-accent;
+    border-radius: v.$border-xs;
+    padding: v.$space-xs;
+    width: 100%;
+
+    &:focus {
+      outline-width: 2px;
+    }
+  }
+
+  .error {
+    color: v.$error-color;
+    font-size: v.$font-size-sm;
+    position: absolute;
+    bottom: -2.5rem;
+    right: -0.25rem;
+  }
+}
+
+.defaultInputField {
+  all: unset;
+  outline: 1px solid v.$secondary-accent;
+  border-radius: v.$border-xs;
+  padding: v.$space-xs;
+
+  &:focus {
+    outline-width: 2px;
+  }
+
+  &::placeholder {
+    color: v.$white-placeholder-color;
+  }
+}

@@ -1,0 +1,12 @@
+@use "../../../sass/abstracts/mixins" as m;
+@use "../../../sass/abstracts/variables" as v;
+
+.initials {
+  @include m.center-flex;
+  @include m.workspace-avatar-base(v.$secondary-accent, v.$primary-accent);
+}
+
+.initialsReversed {
+  @include m.center-flex;
+  @include m.workspace-avatar-base(v.$primary-accent, v.$secondary-accent);
+}

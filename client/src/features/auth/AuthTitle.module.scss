@@ -1,0 +1,44 @@
+@use "../../sass/abstracts/mixins" as m;
+@use "../../sass/abstracts/variables" as v;
+
+.container {
+  @include m.center-flex;
+  min-height: 100vh;
+  color: v.$primary-accent;
+}
+
+.content {
+  @include m.flex(column);
+  @include m.content-container-base(v.$space-md);
+  max-width: 20rem;
+
+  div {
+    text-align: center;
+    font-size: v.$font-size-xl;
+    margin-bottom: v.$space-xs;
+  }
+
+  a {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: inherit;
+
+    button {
+      color: v.$secondary-accent;
+      background-color: v.$primary-accent;
+      padding: v.$space-sm v.$space-xl;
+      border-radius: v.$border-md;
+      margin: v.$space-sm 0;
+      outline: none;
+
+      &:hover {
+        @include m.button-hover;
+      }
+    }
+  }
+
+  .wavy:hover {
+    text-decoration: v.$primary-accent wavy underline;
+  }
+}

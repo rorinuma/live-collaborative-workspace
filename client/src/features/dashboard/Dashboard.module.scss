@@ -1,0 +1,68 @@
+@use "../../sass/abstracts/variables" as v;
+@use "../../sass/abstracts/mixins" as m;
+@use "../../sass/components/inputs" as *;
+
+.dashboard {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  color: v.$secondary-accent;
+
+  nav {
+    @include m.flex(column);
+    flex-basis: 4%;
+    min-width: 3rem;
+  }
+
+  section {
+    @include m.flex(column);
+    flex-basis: 60%;
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: v.$space-sm v.$space-md;
+
+      .headerLeft {
+        @include m.items-center;
+        position: relative;
+
+        input {
+          @extend .defaultInputField;
+          padding-left: v.$space-xl;
+        }
+
+        button {
+          @include m.center-flex;
+          position: absolute;
+          left: v.$space-sm;
+
+          svg {
+            font-size: v.$font-size-lg;
+          }
+        }
+      }
+
+      .headerRight {
+        @include m.items-center;
+        gap: v.$space-sm;
+        flex-direction: row-reverse;
+
+        button {
+          @include m.center-flex;
+
+          svg,
+          img {
+            @include m.workspace-avatar-base(v.$secondary-accent, none, 2rem);
+
+            &:hover {
+              opacity: 0.85;
+              transition: 0.3s;
+            }
+          }
+        }
+      }
+    }
+  }
+}

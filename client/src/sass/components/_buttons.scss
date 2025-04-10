@@ -1,0 +1,21 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+
+.defaultButton {
+  all: unset;
+  color: v.$secondary-accent;
+  background-color: v.$primary-accent;
+  text-align: center;
+  cursor: pointer;
+  padding: 0.75rem v.$space-md;
+  margin-top: v.$space-md;
+  border-radius: v.$border-xxl;
+
+  &:hover:not(:disabled) {
+    @include m.button-hover;
+  }
+
+  &:disabled {
+    @include m.button-base-disabled;
+  }
+}
