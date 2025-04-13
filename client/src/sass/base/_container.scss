@@ -9,3 +9,26 @@
   position: fixed;
   background-color: rgba(20, 20, 20, 0.7);
 }
+
+.popUpBase {
+  @include m.flex(column);
+  position: absolute;
+  border-radius: v.$border-sm;
+  background-color: v.$popup-color;
+  backdrop-filter: blur(8px);
+  border: v.$popup-border;
+  color: v.$secondary-accent;
+
+  a {
+    padding: v.$space-xs 0;
+    border-radius: v.$border-sm;
+    text-align: center;
+    width: 8rem;
+
+    &:hover {
+      background-color: v.$secondary-accent;
+      color: v.$primary-accent;
+      transition: 0.2s;
+    }
+  }
+}

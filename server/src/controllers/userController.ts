@@ -1,5 +1,5 @@
 import { Response } from "express";
-import { profileInfo } from "../models/userModel";
+import { profileInfo, userWorkspaces } from "../models/userModel";
 import { AuthRequest } from "../utils/authUtils";
 
 export interface UserData {
@@ -27,8 +27,32 @@ export const myself = async (req: AuthRequest, res: Response) => {
     res.status(200).json({ username, accountCreationDate: created_at });
     return;
   } catch (error) {
-    console.error("Error while getting profile info:", error);
+    console.error("Error while getting profile info: ", error);
     res.status(500).json({ error: "Internal server error" });
     return;
+  }
+};
+
+export const workspaces = async (req: AuthRequest, res: Response) => {
+  const user = req.user;
+
+  if (!user || !user.id) {
+    res.status(401).json({ error: "no user?" });
+    return;
+  }
+
+  try {
+    const workspaces = await userWorkspaces(user.id);
+
+    if (!workspaces) {
+      res
+        .status(500)
+        .json({ error: "Database error while accessing user workspaces" });
+    }
+    res.status(200).json(workspaces);
+    return;
+  } catch (error) {
+    console.error("Error while getting profile info:", error);
+    res.status(500).json({ error: "Internal server error" });
   }
 };

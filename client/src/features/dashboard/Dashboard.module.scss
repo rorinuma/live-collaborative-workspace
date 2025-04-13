@@ -1,6 +1,7 @@
 @use "../../sass/abstracts/variables" as v;
 @use "../../sass/abstracts/mixins" as m;
 @use "../../sass/components/inputs" as *;
+@use "../../sass/base/container" as *;
 
 .dashboard {
   display: flex;
@@ -49,18 +50,55 @@
         gap: v.$space-sm;
         flex-direction: row-reverse;
 
-        button {
-          @include m.center-flex;
+        div {
+          position: relative;
 
-          svg,
-          img {
-            @include m.workspace-avatar-base(v.$secondary-accent, none, 2rem);
+          button {
+            @include m.center-flex;
 
-            &:hover {
-              opacity: 0.85;
-              transition: 0.3s;
+            svg,
+            img {
+              @include m.workspace-avatar-base(v.$secondary-accent, none, 2rem);
+
+              &:hover {
+                opacity: 0.85;
+                transition: 0.3s;
+              }
             }
           }
+
+          .profilePopUp {
+            @extend .popUpBase;
+            top: 2.75rem;
+            right: -2.75rem;
+          }
+        }
+      }
+    }
+
+    main {
+      display: grid;
+      flex-grow: 1;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(4, 1fr);
+      padding: v.$space-sm v.$space-md;
+      margin-top: v.$space-md;
+
+      .activity,
+      .workspaces {
+        grid-row: span 2;
+      }
+
+      .activity {
+        @include m.flex(column);
+
+        h1 {
+          font-weight: v.$font-weight-medium;
+        }
+
+        .activityContent {
+          @include m.flex(column);
+          margin-top: v.$space-sm;
         }
       }
     }

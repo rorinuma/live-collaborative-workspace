@@ -15,6 +15,10 @@ export function normalizeWorkspace(data: WorkspaceApiResponse): Workspace {
   };
 }
 
+export function normalizeWorkspaces(data: WorkspaceApiResponse[]): Workspace[] {
+  return data.map((workspace) => normalizeWorkspace(workspace));
+}
+
 export function convertDate(date: string) {
   return format(date, "PPP");
 }
