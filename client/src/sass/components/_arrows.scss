@@ -1,8 +1,0 @@
-@use "../abstracts/variables" as v;
-
-.arrow {
-  position: absolute;
-  left: v.$space-md;
-  top: v.$space-md;
-  font-size: v.$font-size-xl;
-}
